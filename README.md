@@ -20,12 +20,17 @@ Implement the following problems descriptions.
 	}
 
 Description :
-	val url = “https://aws.amazon.com/console/home?
-	state=hash&isauthcode=true&code=112”
+
+	val url = “https://aws.amazon.com/console/home?state=hash&isauthcode=true&code=112”
+
 	Extract following fields:
+	
 	protocal =” https”
+	
 	domain = “aws.amazon.com”
+
 	path =”/console/home”
+
 	params = Map(“state” -> “hash”, “isauthcode” -> “true”, “code” -> 112)
 
 3. Write regular expression for email parsing.
