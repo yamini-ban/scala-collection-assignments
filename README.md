@@ -1,4 +1,4 @@
-# scala-extractors
+# scala-collection-assignments
 
 ============= List based assignment ======================
 
