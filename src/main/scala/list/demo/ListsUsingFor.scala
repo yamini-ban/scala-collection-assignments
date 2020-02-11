@@ -42,7 +42,7 @@ class ListsUsingFor {
     }
     else List.empty
   }
-  
+
   def sumAndMultiplication(list: List[Int]): (Int, Int) = {
     if(list.nonEmpty) {
       list.foldLeft((0,1))((result,element) => ((result._1 + element), (result._2 * element)))
@@ -50,5 +50,12 @@ class ListsUsingFor {
     else {
       (0, 0)
     }
+  }
+
+  def higherPercentage(cutOff: Double): List[Student] = {
+    val students = QueryStudentsAndMarks.percentageOfStudents.iterator.map(
+      elem => QueryStudentsAndMarks.students.filter(_.id == elem._1)
+    )
+    students.flatten.toList
   }
 }

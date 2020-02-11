@@ -20,12 +20,10 @@ class QueryStudentsAndMarks {
 object QueryStudentsAndMarks {
   val students: List[Student] = CreateList.createListOfStudents(10)
   val marks: List[Marks] = CreateList.createListOfMarks(5, 10)
-  val percentageOfStudents: List[Double] = students.foldLeft(List[Double])((result, student) => {
+  val percentageOfStudents: List[(Long, Double)] = students.foldLeft(List.empty[(Long, Double)])((result, student) => {
     val mark = marks.filter(_.studentId == student.id)
-    val percent = mark.foldLeft(0.0)(
-      (result, markEle) => result + (markEle.marksObtained / mark.length)
-    )
-    result +: List(percent)
+    val percent = mark.foldLeft(0.0)((result, markEle) => result + (markEle.marksObtained / mark.length))
+    result ::: List((student.id, percent))
   })
 
   val studentCountOnStatusOfSubject: (Int, Int, String) => Int = (subjectId: Int, percentage: Int, status: String) => {
