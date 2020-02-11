@@ -36,5 +36,19 @@ class ListsUsingFor {
     innerAggregateList(list1, list2, List.empty[(Int, String)])
   }
 
-  def tableOfListElements 
+  def tableOfListElements(list: List[Int]): List[Int] = {
+    if(list.nonEmpty) {
+      for (elem <- list; x <- 1 to 10 ) yield(elem * x)
+    }
+    else List.empty
+  }
+  
+  def sumAndMultiplication(list: List[Int]): (Int, Int) = {
+    if(list.nonEmpty) {
+      list.foldLeft((0,1))((result,element) => ((result._1 + element), (result._2 * element)))
+    }
+    else {
+      (0, 0)
+    }
+  }
 }

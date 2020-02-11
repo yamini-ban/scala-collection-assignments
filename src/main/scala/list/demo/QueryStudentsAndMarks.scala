@@ -20,6 +20,10 @@ class QueryStudentsAndMarks {
 object QueryStudentsAndMarks {
   val students: List[Student] = CreateList.createListOfStudents(10)
   val marks: List[Marks] = CreateList.createListOfMarks(5, 10)
+  val percentageOfStudents: List[Double] = students.foldLeft(List[Double])((result, student) => {
+    val mark = marks.filter(_.studentId == student.id)
+    val percent = mark.foldLeft(0.0)((result, markEle) => )
+  })
 
   val studentCountOnStatusOfSubject: (Int, Int, String) => Int = (subjectId: Int, percentage: Int, status: String) => {
     if (status.equalsIgnoreCase("fail")) marks.filter(_.subjectId == subjectId).count(_.marksObtained < percentage)
